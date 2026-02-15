@@ -48,6 +48,18 @@
     "skill-creator": {
       "version": "0.1.0",
       "installedAt": 1771159984704
+    },
+    "asana-workflow": {
+      "version": "1.0.0",
+      "installedAt": 1771195200000,
+      "source": "github",
+      "repo": "startupbuilders777-beep/asana-workflow"
+    },
+    "asana-autonomy-kit": {
+      "version": "1.0.0",
+      "installedAt": 1771195200000,
+      "source": "github",
+      "repo": "startupbuilders777-beep/asana-autonomy-kit"
     }
   }
 }
