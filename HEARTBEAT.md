@@ -160,12 +160,13 @@ git push origin main
 
 ## Asana Projects
 
-| Project | GID |
-|---------|-----|
-| AgentWatch | 1213277278397665 |
-| NexusAI | 1213277068607518 |
-| Whop Course | 1213287173636195 |
-| RedditAutoMarket | 1213287173640360 |
+| Project | GID | GitHub Repo |
+|---------|-----|-------------|
+| AgentWatch | 1213277278397665 | https://github.com/startupbuilders777-beep/agentwatch |
+| NexusAI | 1213277068607518 | https://github.com/startupbuilders777-beep/nexus-ai |
+| RedditAutoMarket | 1213287173640360 | https://github.com/startupbuilders777-beep/reddit-automarket |
+| SafeAgent | 1213287696255155 | https://github.com/startupbuilders777-beep/safeagent |
+| Whop Course | 1213287173636195 | - |
 
 ---
 
