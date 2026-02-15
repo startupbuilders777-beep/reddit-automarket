@@ -4,7 +4,7 @@
 
 **What to call him:** Harry (obviously)
 
-**Timezone:** Not set yet - need to ask
+**Timezone:** EST (Eastern Standard Time)
 
 **What I know:**
 - Running businesses

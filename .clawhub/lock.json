@@ -36,6 +36,14 @@
     "google-analytics": {
       "version": "1.0.10",
       "installedAt": 1771071077868
+    },
+    "agentmail": {
+      "version": "1.1.1",
+      "installedAt": 1771156333265
+    },
+    "asana": {
+      "version": "1.0.0",
+      "installedAt": 1771157545690
     }
   }
 }
