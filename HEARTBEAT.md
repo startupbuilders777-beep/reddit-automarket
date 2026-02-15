@@ -67,6 +67,13 @@ Project (e.g., RedditAutoMarket)
 2. Reconcile status with what was built
 3. QA review completed features
 
+### Git Per Project
+Each project SHOULD have its own git repo:
+- Project folder = git repo
+- Commit per task completion
+- Tags for releases
+- Sync to GitHub
+
 ---
 
 ## 2. Quick Checks (30 seconds)
