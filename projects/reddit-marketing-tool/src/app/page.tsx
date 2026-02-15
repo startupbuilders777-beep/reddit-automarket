@@ -12,7 +12,7 @@ export default function Home() {
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             AI-powered tool that finds relevant posts and generates contextual comments 
-            to grow your app's visibility. Save 20+ hours/week.
+            to grow your app&apos;s visibility. Save 20+ hours/week.
           </p>
           <div className="flex gap-4 justify-center">
             <Link 

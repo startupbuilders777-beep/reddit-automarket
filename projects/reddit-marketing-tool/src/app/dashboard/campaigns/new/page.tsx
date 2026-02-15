@@ -74,7 +74,7 @@ export default function NewCampaignPage() {
             placeholder="SaaS, startups, indiehackers"
           />
           <p className="text-sm text-gray-500 mt-1">
-            Add subreddit names without 'r/'
+            Add subreddit names without r/
           </p>
         </div>
 
