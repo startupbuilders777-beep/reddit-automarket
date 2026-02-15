@@ -2,6 +2,7 @@ import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
+import { RedditAccount } from '@prisma/client'
 import Link from 'next/link'
 import { Plus, Trash2, CheckCircle, XCircle } from 'lucide-react'
 
@@ -15,7 +16,7 @@ export default async function AccountsPage() {
   const accounts = await prisma.redditAccount.findMany({
     where: { userId: session.user.id },
     orderBy: { createdAt: 'desc' }
-  })
+  }) as RedditAccount[]
 
   return (
     <div>

@@ -79,3 +79,36 @@ Before posting to #ideas:
 2. Check for duplicates
 3. If similar idea exists, either skip or add a fresh twist
 4. Prioritize SaaS over iOS (user preference)
+
+---
+
+# 📊 RESEARCH SYSTEM
+
+## Working Data Sources
+
+| Source | URL | Status |
+|--------|-----|--------|
+| App Store Rankings | appfigures.com/top-apps | ✅ Works |
+| Hacker News | news.ycombinator.com | ✅ Works |
+| Google Trends | trends.google.com | ❌ Blocked (needs cookies) |
+| TikTok/Instagram | tiktok.com, instagram.com | ❌ Blocked (bot detection) |
+| Reddit | reddit.com | ❌ 403 blocked |
+
+## Cron Jobs Active
+
+1. **Deep Trends Research** (Hourly to #ideas)
+   - Fetches App Store data from appfigures
+   - Checks HN for tech trends
+   - Converts to SaaS + iOS ideas
+   - Checks master-list to avoid duplicates
+
+2. **B2B Trends** (Hourly to #general)
+   - Business/productivity App Store scan
+   - HN business opportunities
+   - 1-2 B2B ideas per run
+
+## How to Improve
+
+- Get **Brave Search API key** for real web search
+- Pair **Mac mini** for browser automation (TikTok/IG)
+- Consider paid App Store analytics (Sensor Tower, AppTweak)

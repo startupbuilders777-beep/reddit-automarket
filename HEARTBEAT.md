@@ -12,7 +12,7 @@
 
 **Always be scouting for new projects:**
 
-1. **Web Research** (use browser tool)
+1. **Web Research** (use agent-browser or web_fetch)
    - Search for AI automation trends
    - Find pain points in SMB market
    - Discover competitor gaps
@@ -23,13 +23,42 @@
    - Tag as opportunity
 
 3. **Create Asana tasks**
-   - If opportunity is solid → create task in appropriate project
-   - Break into subtasks
+   - If opportunity is solid → create Asana task
+   - Break into features and subtasks
    - Set priority
 
 ---
 
-## 1. Quick Checks (30 seconds)
+## 1. Project & Product Management (Continuous)
+
+**As Coordinator, I manage all Asana projects:**
+
+### Each Project Needs:
+- [ ] **PRD** - Product Requirements Document
+- [ ] **Features** - Major capability areas
+- [ ] **Tasks** - Specific implementation items
+- [ ] **Status** - Up to date
+
+### Project Structure in Asana:
+```
+Project (e.g., RedditAutoMarket)
+├── Epic/Feature 1
+│   ├── Task: Implementation item
+│   └── Task: Implementation item
+├── Epic/Feature 2  
+│   └── Task: Implementation item
+└── Bug/Technical Debt
+```
+
+### Update Every Heartbeat:
+1. Review each project's task completeness
+2. Add missing features/tasks
+3. Update progress comments
+4. Ensure PRD is reflected in tasks
+
+---
+
+## 2. Quick Checks (30 seconds)
 
 ### Urgent Items
 - [ ] Human messages waiting in Discord?
@@ -39,7 +68,7 @@
 ```bash
 TOKEN="2/1213287152205467/1213287139030185:70bce90f612d0ea072617e4dc8686bcd"
 
-# Get incomplete tasks
+# Get incomplete tasks assigned to me
 curl -s -H "Authorization: Bearer $TOKEN" \
   "https://app.asana.com/api/1.0/tasks?assignee=me&completed=false"
 ```
@@ -48,36 +77,29 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 
 ---
 
-## 2. Work Mode (Ralph Loop)
+## 3. Work Mode (Ralph Loop)
 
 ### Ralph Loop Steps
 
 1. **Pick task from Asana** - highest priority, unassigned
 2. **Break into subtasks** - if large, create Asana checklist items
-3. **Execute subtask** - do the work
+3. **Execute subtask** - do the work, anticipating pitfalls
 4. **Validate** - does it work? does it meet spec?
 5. **Complete or Continue**
    - ✅ Complete → mark done in Asana, add completion comment
    - ⏳ Incomplete → add progress comment, save context, spawn new session
 
-### Task Execution Rules
-
-- **Create as many tasks as possible** - More tasks = more parallel work
-- **Break big tasks into small ones** - Easier to complete
-- **Always validate** - Don't just write code, test it
-- **Update Asana constantly** - It's the source of truth
-- **Never leave stale** - Complete or update progress every heartbeat
-
 ---
 
-## 3. Asana Verification (Every Heartbeat)
+## 4. Asana Verification (Every Heartbeat)
 
-### Verify & Update All Tickets
+### Verify & Update All Projects
 
-1. List all projects in Asana
-2. Check each for incomplete tasks
-3. Update stale tasks with progress comments
-4. Add context if scope changed
+For each Asana project:
+1. List all tasks
+2. Check completion status
+3. Add missing tasks ifPRD has unimplemented items
+4. Update stale tasks with progress comments
 
 ### Jira-Style Ticket Format
 
@@ -90,7 +112,7 @@ Every task MUST have:
 
 ---
 
-## 4. Before Finishing
+## 5. Before Finishing
 
 ### Log Progress
 - Update daily memory: `memory/YYYY-MM-DD.md`
@@ -103,7 +125,7 @@ Every task MUST have:
 
 ---
 
-## 5. GitHub Sync
+## 6. GitHub Sync
 
 ```bash
 cd /home/ubuntu/.openclaw/workspace
@@ -133,9 +155,9 @@ DISCOVER → TRIAGE → ASANA → RALPH LOOP → COMPLETE
     └──────────────────────────────────────────┘
 ```
 
-1. **Discover** - Scout opportunities, post to #ideas
-2. **Triage** - Evaluate, prioritize
-3. **Asana** - Create Jira-style tasks
+1. **Discover** - Scout opportunities
+2. **Triage** - Evaluate, prioritize, create PRDs/features
+3. **Asana** - Create Jira-style tasks from PRD
 4. **Ralph Loop** - Execute, validate, complete
 5. **Complete** - Mark done, sync GitHub
 
@@ -146,45 +168,10 @@ DISCOVER → TRIAGE → ASANA → RALPH LOOP → COMPLETE
 ❌ **HEARTBEAT_OK** — Never just say ok, do work
 ❌ **Ignore Asana** — Task queue IS Asana
 ❌ **Skip scouting** — Always look for opportunities
+❌ **Skip PM duties** — Keep PRD/tasks in sync
 ❌ **Leave stale tasks** — Update or complete
 ❌ **Solo everything** — Spawn agents for parallel work
-❌ **No validation** — Test your code
-❌ **Fake progress** — Never post empty updates or fake numbers
-❌ **Hide blocks** — Always tell Harry when blocked + what you need
 
 ---
 
-## BLOCKED TASK PROTOCOL
-
-**If you don't have specs:**
-1. Stop working
-2. Post in Discord: "BLOCKED: Need [specific info] for [task name]"
-3. List exactly what you need
-
-**If you're stuck on something:**
-1. Try for 5 min max
-2. Post in Discord: "BLOCKED: [reason] - need [what you tried / what you need]"
-3. Move to next task if possible
-
-**NEVER:** Fake progress, fabricate numbers, or pretend you're working when blocked
-
--- **Ralph Loop:** Pick task → Break → Execute → Validate → Complete
--- **Heartbeat:** Every 30 min
--- **Discovery:** Scout opportunities → Create Asana tasks → Execute
--- **GitHub Sync:** Every heartbeat
-
----
-
-## Tools Available
-
-| Tool | Purpose |
-|------|---------|
-| browser | Web research, scouting |
-| exec | Run commands, build |
-| Asana API | Task management |
-| Discord | Communication |
-| sessions_spawn | Parallel work |
-
----
-
-*24/7. Always working. Always scouting. Always shipping.*
+*24/7. Always working. Always shipping. Always managing.*

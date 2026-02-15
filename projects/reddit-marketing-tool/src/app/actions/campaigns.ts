@@ -50,7 +50,10 @@ export async function updateCampaign(id: string, data: Partial<{
 
   const campaign = await prisma.campaign.update({
     where: { id, userId: session.user.id },
-    data,
+    data: {
+      ...data,
+      status: data.status as any,
+    },
   })
 
   revalidatePath('/dashboard/campaigns')
