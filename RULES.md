@@ -152,6 +152,8 @@ task/WATCH-001/multi-agent-support
 ❌ **Solo everything** - Spawn agents for parallel work  
 ❌ **Forget learnings** - Log errors and corrections  
 ❌ **Skip commits** - Every code change needs commit with TASK-ID  
+❌ **Skip QA** - Every project needs end-to-end verification  
+❌ **Code-only QA** - QA must actually RUN the app, not just review code  
 
 ---
 
@@ -177,6 +179,65 @@ When starting a new project:
 - [ ] Cron jobs running (check cron list)
 - [ ] Learnings logged (check .learnings/)
 - [ ] Memory updated (check memory/)
+- [ ] QA verification completed for all projects
+
+---
+
+## QA VERIFICATION PROCESS
+
+### Every Project MUST Pass QA Before Deployment
+
+QA Agent runs end-to-end verification:
+
+1. **Pull Latest Code** - `git pull && npm install && npm run build`
+2. **Start App** - `npm run dev`
+3. **Verify Asana Tasks** - Check each completed task's acceptance criteria
+4. **Test All Screens** - Homepage, login, dashboard, all features
+5. **Compare with SPEC.md** - Ensure matches PRD
+6. **Create Issues** - If bugs found, create Asana tasks
+
+### Project Verification Checklist
+
+#### RedditAutoMarket
+- [ ] Auth flow (register/login)
+- [ ] Database tables created
+- [ ] Campaign CRUD
+- [ ] Reddit OAuth
+- [ ] AI comment generation
+- [ ] Automation worker
+- [ ] Analytics dashboard
+- [ ] All UI screens
+
+#### AgentWatch
+- [ ] Dashboard loads
+- [ ] Agent details view
+- [ ] API endpoints work
+
+#### SafeAgent
+- [ ] Homepage loads
+- [ ] Dashboard accessible
+
+#### NexusAI
+- [ ] Chat interface works
+- [ ] RAG pipeline functional
+
+### QA Output
+
+**Pass:**
+```
+✅ QA Verified: [Project]
+Tasks: X/Y complete
+Issues: 0
+Ready for: Deploy
+```
+
+**Fail:**
+```
+❌ QA Issues: [Project]
+Tasks: X/Y complete
+Issues Found: N
+Created Asana tasks for each issue
+```
 
 ---
 
