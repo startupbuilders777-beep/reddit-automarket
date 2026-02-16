@@ -1,37 +1,35 @@
-// This is your Prisma schema file
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
-// Agent model - represents AI agents being monitored
 model Agent {
   id          String   @id @default(cuid())
   name        String
   description String?
-  status      String   @default("inactive") // active, inactive, error
-  type        String   // openai, anthropic, custom, etc.
-  config      String?  // JSON config for the agent
+  status      String   @default("inactive")
+  type        String
+  config      String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
   metrics     Metric[]
   tasks       Task[]
+  activities  ActivityLog[]
 }
 
-// Metric model - stores performance metrics for agents
 model Metric {
   id          String   @id @default(cuid())
   agentId     String
-  type        String   // cpu, memory, latency, cost, tokens, etc.
+  type        String
   value       Float
-  unit        String?  // ms, MB, $, tokens, etc.
+  unit        String?
   timestamp   DateTime @default(now())
-  metadata    String?  // Additional JSON metadata
+  metadata    String?
 
   agent       Agent    @relation(fields: [agentId], references: [id], onDelete: Cascade)
 
@@ -39,22 +37,39 @@ model Metric {
   @@index([timestamp])
 }
 
-// Task model - tracks tasks executed by agents
 model Task {
   id          String   @id @default(cuid())
   agentId     String
   name        String
   description String?
-  status      String   @default("pending") // pending, running, completed, failed
-  result      String?  // JSON result
-  error       String?  // Error message if failed
+  status      String   @default("pending")
+  result      String?
+  error       String?
   startedAt   DateTime @default(now())
   completedAt DateTime?
-  duration    Int?     // Duration in milliseconds
+  duration    Int?
 
   agent       Agent    @relation(fields: [agentId], references: [id], onDelete: Cascade)
 
   @@index([agentId])
   @@index([status])
   @@index([startedAt])
+}
+
+model ActivityLog {
+  id          String   @id @default(cuid())
+  agentId     String?
+  sessionId   String?
+  action      String
+  message     String?
+  metadata    String?
+  timestamp   DateTime @default(now())
+  source      String?
+
+  agent       Agent?   @relation(fields: [agentId], references: [id], onDelete: Cascade)
+
+  @@index([agentId])
+  @@index([sessionId])
+  @@index([action])
+  @@index([timestamp])
 }
