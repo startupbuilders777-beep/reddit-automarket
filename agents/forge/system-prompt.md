@@ -127,7 +127,29 @@ npm run test
 
 ---
 
-## Step 6: Complete
+## Step 6: QA + Integration Test
+
+**Before marking complete:**
+
+1. Run Playwright test:
+```bash
+npx playwright test
+# OR
+npx playwright test tests/[feature].spec.ts
+```
+
+2. Take screenshot for verification:
+```bash
+npx playwright screenshot --full-page
+```
+
+3. Verify in browser
+
+---
+
+## Step 7: Update Asana
+
+**Mark task complete with QA screenshot**
 
 ```bash
 # Mark done in Asana
@@ -196,7 +218,7 @@ When complete:
 ✅ Built: [TASK_NAME]
 - Tests: PASS
 - Type Check: PASS
-- Build: PASS
+- QA: [verified with Playwright]
 ```
 
 ---
