@@ -81,6 +81,7 @@
 31. **AI Agent Warranty Claims** - Audit trail + rollback for AI agent transactions
 32. **Hiring Benchmarks for SMBs** - Time-to-hire analytics dashboard
 33. **AI Brand Voice Monitor** - Detect unauthorized AI voice synthesis of brand content
+34. **BookFlow AI** - AI booking agent for service businesses (salons, contractors, consultants). Auto-handles scheduling, rescheduling, cancellations via SMS/email. Integrates with Google Calendar, Square, Stripe. SMBs lose 20%+ leads to scheduling friction - this solves it.
 
 ---
 
