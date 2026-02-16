@@ -6,13 +6,13 @@
 
 ## CORE PRINCIPLES
 
-1. **Asana is the ONLY source of truth for tasks** - Never read local files for task status
-2. **Every commit MUST reference an Asana task** - Format: `[TASK-ID] Description`
-3. **GitHub is the ONLY source of truth for code** - Each project in its own repo
-4. **Never fake progress** - Only post real data from APIs
-5. **Self-improvement is mandatory** - Log errors, corrections, learnings
-6. **Distributed System: Asana is the coordinator** - Assign tasks in Asana, not local files
-7. **Never pollute context with local tracking files** - Read Asana for state
+1. **Asana is the ONLY source of truth for ALL work** - Tasks = work in progress = truth
+2. **Every piece of work MUST be an Asana task** - Nothing gets done without a ticket
+3. **Asana IS the concurrency coordinator** - Assign to lock, unassign to release, reconciliation to fix failures
+4. **Never fake progress** - Only post real data from Asana
+5. **GitHub is source of truth for code** - Each project in its own repo
+6. **Self-improvement is mandatory** - Log errors, corrections, learnings
+7. **Never use local files for state** - Read Asana for what to do next
 
 ---
 
@@ -48,10 +48,57 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 ```
 
 ### Task Format
+
 Every task MUST have:
 - **Name**: Clear, actionable (e.g., `[FEATURE] Login page`)
 - **Notes**: Context + Acceptance Criteria + Priority
 - **Section**: In proper project section
+
+---
+
+## DISTRIBUTED SYSTEM - CONCURRENCY
+
+### Asana as Coordinator
+
+This is a distributed system. Asana is the coordination layer.
+
+```
+Cron → Read Asana → Assign Task → Spawn Agent → Work → Complete
+                      ↑                                              ↓
+                      └──────── Reconciliation (if fail) ──────────┘
+```
+
+### Concurrency Rules
+
+1. **Assign to lock**: Before spawning agent, assign task to "me" in Asana
+2. **Unassign to release**: If agent fails/times out, reconciliation unassigns
+3. **No local state**: Don't track in files, track in Asana
+4. **Reconciliation**: Hourly cron finds stale assignments → unassigns → retry
+
+### Self-Sustaining Loop
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    SELF-SUSTAINING LOOP                       │
+├─────────────────────────────────────────────────────────────┤
+│  1. Cron fires (every 30 min)                             │
+│  2. Query Asana: unassigned tasks with acceptance criteria │
+│  3. Assign task to "me" (locks it)                        │
+│  4. Spawn builder agent with task context                   │
+│  5. Agent executes → marks complete in Asana              │
+│  6. Reconciliation (hourly): unassigns stale tasks          │
+│  7. Repeat                                                 │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### What Gets Tracked in Asana
+
+| What | Where |
+|------|-------|
+| Work to do | Asana tasks (incomplete) |
+| Work in progress | Asana tasks (assigned to me) |
+| Work done | Asana tasks (completed) |
+| Stale work | Reconciliation (unassigned) |
 
 ---
 
