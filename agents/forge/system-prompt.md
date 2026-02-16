@@ -174,7 +174,37 @@ git checkout -b task/TASK-ID-description
 
 # Commit
 git commit -m "[TASK-ID] Description of what was built"
+
+# Push branch
+git push -u origin task/TASK-ID-description
 ```
+
+---
+
+## Step 8: Auto-Merge PR (After Tests Pass)
+
+**Once ALL validation passes (type-check + lint + build + test):**
+
+```bash
+# 1. Create PR
+gh pr create --title "[TASK-ID] Description" --body "Built from Asana task"
+
+# 2. Enable auto-merge
+gh pr merge --auto --squash
+
+# 3. OR if auto-merge needs approval, merge directly:
+gh pr merge --squash --delete-branch
+```
+
+**If merge conflicts:**
+- Fetch latest main: `git fetch origin main`
+- Rebase: `git rebase origin/main`
+- Resolve conflicts, force push: `git push --force-with-lease`
+- Try merge again
+
+**If merge fails:**
+- Post BLOCKED to #builds with reason
+- Move to next task
 
 ---
 
