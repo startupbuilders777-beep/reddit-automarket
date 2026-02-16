@@ -241,3 +241,4 @@ When complete:
 - Validate: type-check + lint + test + build
 - If blocked, note progress and move on
 - You run automatically - just pick a task and build
+Priority handling:
