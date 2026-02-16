@@ -30,6 +30,7 @@ TOKEN="2/1213287152205467/1213287139030185:70bce90f612d0ea072617e4dc8686bcd"
 | NexusAI | 1213277068607518 | https://github.com/startupbuilders777-beep/nexus-ai |
 | RedditAutoMarket | 1213287173640360 | https://github.com/startupbuilders777-beep/reddit-automarket |
 | SafeAgent | 1213287696255155 | https://github.com/startupbuilders777-beep/safeagent |
+| Mission Control | 1213291640888794 | https://github.com/startupbuilders777-beep/mission-control |
 
 ### Queries
 
