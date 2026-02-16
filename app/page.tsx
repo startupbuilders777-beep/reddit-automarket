@@ -1,4 +1,5 @@
 import AgentStatusPanel from './components/AgentStatusPanel'
+import PipelineMetrics from './components/PipelineMetrics'
 
 export default function Home() {
   return (
@@ -34,38 +35,7 @@ export default function Home() {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">System Health</h3>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-slate-400">API Latency</span>
-                    <span className="text-emerald-400 font-medium">45ms</span>
-                  </div>
-                  <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                    <div className="h-full w-[15%] bg-emerald-500 rounded-full" />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-slate-400">Memory Usage</span>
-                    <span className="text-blue-400 font-medium">62%</span>
-                  </div>
-                  <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                    <div className="h-full w-[62%] bg-blue-500 rounded-full" />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-slate-400">Active Connections</span>
-                    <span className="text-purple-400 font-medium">12</span>
-                  </div>
-                  <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                    <div className="h-full w-[40%] bg-purple-500 rounded-full" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <PipelineMetrics />
           </div>
         </div>
       </div>
