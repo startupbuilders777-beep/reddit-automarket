@@ -10,6 +10,7 @@
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
+    "db:seed": "npx tsx prisma/seed-pricing.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
@@ -26,6 +27,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "snoowrap": "^1.23.0",
+    "stripe": "^20.3.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {

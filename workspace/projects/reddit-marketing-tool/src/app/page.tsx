@@ -16,10 +16,10 @@ export default function Home() {
           </p>
           <div className="flex gap-4 justify-center">
             <Link 
-              href="/api/auth/signin" 
+              href="/pricing" 
               className="bg-reddit hover:bg-redditDark text-white px-8 py-3 rounded-lg font-semibold transition"
             >
-              Start Free Trial
+              View Pricing
             </Link>
             <Link 
               href="#features" 
@@ -60,28 +60,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Simple Pricing</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <PricingCard 
-              name="Starter"
-              price="$29"
-              features={['1 Reddit Account', '3 Campaigns', '100 comments/month', 'Basic Analytics']}
-            />
-            <PricingCard 
-              name="Pro"
-              price="$79"
-              popular
-              features={['5 Reddit Accounts', 'Unlimited Campaigns', '1000 comments/month', 'Advanced Analytics', 'AI Templates']}
-            />
-            <PricingCard 
-              name="Agency"
-              price="$199"
-              features={['Unlimited Accounts', 'Unlimited Campaigns', 'Unlimited comments', 'White Label', 'Priority Support']}
-            />
-          </div>
+      {/* CTA */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to Automate Your Reddit Marketing?</h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Join thousands of marketers saving 20+ hours per week with AI-powered Reddit automation.
+          </p>
+          <Link 
+            href="/pricing" 
+            className="bg-reddit hover:bg-redditDark text-white px-8 py-3 rounded-lg font-semibold transition inline-block"
+          >
+            Get Started Now
+          </Link>
         </div>
       </section>
 
@@ -101,30 +92,6 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode; titl
       <div className="text-reddit mb-4 flex justify-center">{icon}</div>
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="text-gray-600">{description}</p>
-    </div>
-  )
-}
-
-function PricingCard({ name, price, features, popular }: { name: string; price: string; features: string[]; popular?: boolean }) {
-  return (
-    <div className={`bg-white p-8 rounded-xl ${popular ? 'ring-2 ring-reddit shadow-lg' : 'border border-gray-200'} relative`}>
-      {popular && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-reddit text-white px-4 py-1 rounded-full text-sm font-medium">
-          Most Popular
-        </span>
-      )}
-      <h3 className="text-xl font-semibold mb-2">{name}</h3>
-      <div className="text-4xl font-bold mb-6">{price}<span className="text-lg text-gray-500 font-normal">/mo</span></div>
-      <ul className="space-y-3 mb-8">
-        {features.map((feature, i) => (
-          <li key={i} className="text-gray-600 flex items-center gap-2">
-            <span className="text-green-500">✓</span> {feature}
-          </li>
-        ))}
-      </ul>
-      <Link href="/api/auth/signin" className={`block text-center py-3 rounded-lg font-semibold ${popular ? 'bg-reddit hover:bg-redditDark text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'} transition`}>
-        Get Started
-      </Link>
     </div>
   )
 }
