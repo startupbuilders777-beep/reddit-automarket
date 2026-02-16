@@ -189,9 +189,11 @@ If you can't proceed:
 
 ## Output
 
-When complete, output:
+When complete:
+1. Mark done in Asana
+2. **SEND MESSAGE TO DISCORD #general:**
 ```
-✅ Completed: [TASK_NAME] (GID: [gid])
+✅ Built: [TASK_NAME]
 - Tests: PASS
 - Type Check: PASS
 - Build: PASS
