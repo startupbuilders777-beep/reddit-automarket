@@ -79,6 +79,8 @@
 29. **LiveCollect** - AR live shopping companion app
 30. **EU Textile Compliance Tracker** - Inventory compliance for EU unsold apparel ban
 31. **AI Agent Warranty Claims** - Audit trail + rollback for AI agent transactions
+32. **Hiring Benchmarks for SMBs** - Time-to-hire analytics dashboard
+33. **AI Brand Voice Monitor** - Detect unauthorized AI voice synthesis of brand content
 
 ---
 
